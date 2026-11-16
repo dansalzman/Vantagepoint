@@ -55,6 +55,8 @@ export const openItems: OpenItem[] = [
   { id: 'T2', group: 'Technical', priority: 'Medium', title: 'Donation processor, gala ticketing and sponsorship packages', demo: 'Buttons link nowhere', pages: ['Donate'] },
   { id: 'T3', group: 'Technical', priority: 'High', title: 'WCAG 2.1 AA audit and a published accessibility statement', demo: 'Draft statement outline', pages: ['Footer'] },
   { id: 'T4', group: 'Technical', priority: 'High', title: 'Privacy policy covering form data', demo: 'Not written', pages: ['Footer', 'Forms'] },
+  { id: 'T5', group: 'Technical', priority: 'Blocker', title: 'Platform and domain: replace GoDaddy or fix it first; who controls usevantagepoint.com DNS; Google Business Profile', demo: 'Demo hosted on GitHub Pages', pages: ['Whole site'] },
+  { id: 'T6', group: 'Technical', priority: 'Blocker', title: 'Who maintains the site, hours available each month, and analytics', demo: 'Not decided', pages: ['Whole site'] },
 ];
 
 export const byId = Object.fromEntries(openItems.map((i) => [i.id, i]));
