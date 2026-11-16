@@ -1,0 +1,14 @@
+---
+// Inline marker for content Vantage Point staff must supply or confirm.
+// <Todo id="F2">(760) 555-0100</Todo> renders the placeholder text with a
+// highlight and a tag linking to its entry on the open items page.
+import { byId } from '../data/openItems';
+interface Props { id: string; block?: boolean }
+const { id, block = false } = Astro.props;
+const item = byId[id];
+if (!item) throw new Error(`Unknown open item ${id}`);
+const Tag = block ? 'div' : 'span';
+---
+<Tag class:list={['todo', { 'todo--block': block }]} data-todo={id}>
+  <slot /><a class="todo__tag" href={`open-items.html#${id}`} title={item.title}><span class="sr-only">Open item </span>{id}</a>
+</Tag>

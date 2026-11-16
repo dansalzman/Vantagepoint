@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import Todo from '../components/Todo.astro';
+import Stats from '../components/Stats.astro';
+import Quote from '../components/Quote.astro';
+
+const sectors = [
+  { img: 'happy-office-desk.jpg', alt: 'A woman smiles at her desk beside a keyboard.', w: 934, h: 1400, title: 'Office and administration' },
+  { img: 'happy-cashier.jpg', alt: 'A smiling cashier serves a customer at a counter.', w: 933, h: 1400, title: 'Retail and customer service' },
+  { img: 'happy-chef.jpg', alt: 'A chef in whites stands with arms crossed in an open kitchen.', w: 933, h: 1400, title: 'Food service' },
+  { img: 'technician-wheelchair.jpg', alt: 'A technician who uses a wheelchair adjusts equipment at a workbench.', w: 1400, h: 963, title: 'Skilled trades' },
+];
+---
+<Base
+  title="Results: Placements, Wages and Client Ratings | Vantage Point"
+  description="780+ people with disabilities placed in competitive jobs. $22.22 average hourly wage and 9.2/10 client rating in 2025. Testimonials, employers and reports."
+  current="results"
+>
+  <section class="page-hero vp-on-brand">
+    <div class="wrap">
+      <p class="vp-eyebrow">Results</p>
+      <h1>Outcomes we publish every year</h1>
+      <p class="lead">Every number says what it counts and for which year. Most providers in our field do not publish wage or satisfaction data. We do.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <Stats eyebrow="2025 outcomes" />
+      <p class="small muted" style="margin-top: var(--space-4)">The three-month figure counts clients placed in 2025 who were still in the same position after 90 days. <Todo id="F15">Add context: the comparison benchmark, or a six- or twelve-month measure</Todo></p>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">Where people work</p>
+        <h2>Jobs across many sectors</h2>
+      </div>
+      <div class="grid grid--4">
+        {sectors.map((s) => (
+          <article class="vp-card vp-card--raised">
+            <img class="vp-card__media" src={`images/${s.img}`} alt={s.alt} width={s.w} height={s.h} loading="lazy" />
+            <div class="vp-card__body"><h3>{s.title}</h3></div>
+          </article>
+        ))}
+      </div>
+      <h3 style="margin-top: var(--space-12)">Recent employers</h3>
+      <Todo id="P1" block>
+        <ul class="chips" aria-label="Employers (placeholders)">
+          {Array.from({ length: 12 }, (_, i) => <li>Employer name {i + 1}</li>)}
+        </ul>
+      </Todo>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">In their words</p>
+        <h2>Testimonials</h2>
+      </div>
+      <div class="grid grid--2">
+        <Quote cite="Client, placed in 2025" todo="P4"><p>“They asked what I wanted to do before they asked what I couldn't do.”</p></Quote>
+        <Quote cite="Client, placed in 2024" todo="P4"><p>“My coach came with me the first two weeks. After that I didn't need her, but I knew I could call.”</p></Quote>
+      </div>
+      <p class="small muted" style="margin-top: var(--space-4)">Video testimonials will appear here with captions and a text transcript. <Todo id="P4">Nine existing testimonials to migrate</Todo></p>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap grid grid--2">
+      <div>
+        <h2>Reports</h2>
+        <ul class="prose">
+          <li><Todo id="P7">2025 annual report (PDF)</Todo></li>
+          <li><Todo id="P7">2024 annual report (PDF)</Todo></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Recognition</h2>
+        <p><Todo id="P6">Leadership award from 10News San Diego to our founder (date and link to add)</Todo></p>
+      </div>
+    </div>
+  </section>
+</Base>

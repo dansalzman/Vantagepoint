@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import Todo from '../components/Todo.astro';
+---
+<Base
+  title="About Vantage Point: Mission, Team and Board | Disability Employment Nonprofit, Carlsbad CA"
+  description="Vantage Point is a 501(c)(3) nonprofit in Carlsbad, California, placing people with disabilities in integrated, competitive employment since 2020."
+  current="about"
+>
+  <section class="page-hero vp-on-brand">
+    <div class="wrap">
+      <p class="vp-eyebrow">About</p>
+      <h1>Connecting people's passions to meaningful work</h1>
+      <p class="lead">Empowering people with disabilities by connecting their passions to meaningful, integrated employment.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="prose">
+        <h2>Our story</h2>
+        <Todo id="P9" block>
+          <p>Vantage Point was founded in <Todo id="F1">2020</Todo> in North County San Diego with one idea: people with disabilities should be placed in real jobs, at real wages, matched to what they want to do.</p>
+          <p>Since then we have placed more than 780 people in competitive, integrated jobs, and become an approved vendor of the California Department of Rehabilitation in nine districts.</p>
+        </Todo>
+        <h3 style="margin-top: var(--space-6)">What we believe</h3>
+        <ul>
+          <li>Work in the community, alongside coworkers without disabilities, at the same pay.</li>
+          <li>The person chooses the job.</li>
+          <li>Support continues after the first day.</li>
+          <li>We publish our outcomes.</li>
+        </ul>
+      </div>
+      <img class="rounded" src="images/hero-brainstorm.jpg" alt="A team meeting where a man using a wheelchair points to notes on a whiteboard while four coworkers look on." width="1400" height="934" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">Team</p>
+        <h2>The people you will work with</h2>
+      </div>
+      <Todo id="P8" block>
+        <div class="grid grid--4">
+          {['Founder and Executive Director', 'Director of Employment Services', 'Job Developer', 'Job Coach'].map((role, i) => (
+            <div class="person">
+              <div class="ring-placeholder" aria-hidden="true"><span>{String.fromCharCode(65 + i)}</span></div>
+              <h3>Staff name</h3>
+              <p>{role}</p>
+            </div>
+          ))}
+        </div>
+      </Todo>
+      <h3 style="margin-top: var(--space-12)">Board of directors</h3>
+      <Todo id="P8" block><p>Board member names and affiliations to add.</p></Todo>
+    </div>
+  </section>
+
+  <section class="section" id="careers">
+    <div class="wrap split">
+      <div class="prose">
+        <p class="vp-eyebrow">Careers at Vantage Point</p>
+        <h2>Work at Vantage Point</h2>
+        <p>Looking for a job as a client? <a href="find-a-job.html">Start here</a> instead. This section is for people who want to join our staff as job developers, coaches and support roles.</p>
+        <p><Todo id="F2">Open positions and how to apply</Todo></p>
+      </div>
+      <div class="callout">
+        <h3>Credentials</h3>
+        <ul class="prose" style="margin:0">
+          <li>501(c)(3) nonprofit</li>
+          <li>Approved vendor, California Department of Rehabilitation</li>
+          <li><Todo id="P5">Accreditation, if held</Todo></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Base>

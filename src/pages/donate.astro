@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import Todo from '../components/Todo.astro';
+---
+<Base
+  title="Donate to Vantage Point | Support Jobs for People with Disabilities"
+  description="Support job coaching and career services for people with disabilities in San Diego and Southern California. Donate, attend the gala or sponsor."
+>
+  <section class="page-hero vp-on-brand">
+    <div class="wrap">
+      <p class="vp-eyebrow">Support us</p>
+      <h1>Your gift helps someone get to work</h1>
+      <p class="lead">Public funding pays for core services. Donations pay for what it does not cover: extra coaching, transportation help and outreach to new employers.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid grid--3">
+      <div class="vp-card"><div class="vp-card__body">
+        <img src="icons/vp-icon-support.svg" alt="" width="48" height="48" />
+        <h3>Give once or monthly</h3>
+        <p>Secure online giving. 501(c)(3); gifts are tax-deductible as allowed by law.</p>
+        <p><a class="vp-btn vp-btn--give" href="open-items.html#T2">Donate</a></p>
+        <p class="small"><Todo id="T2">Payment processor to connect</Todo></p>
+      </div></div>
+      <div class="vp-card"><div class="vp-card__body">
+        <img src="icons/vp-icon-goal.svg" alt="" width="48" height="48" />
+        <h3>Annual gala</h3>
+        <p>Join us on December 9, 2026 to celebrate this year's placements.</p>
+        <p><a class="vp-btn vp-btn--secondary" href="open-items.html#T2">Get tickets</a></p>
+        <p class="small"><Todo id="T2">Venue and ticket link to add</Todo></p>
+      </div></div>
+      <div class="vp-card"><div class="vp-card__body">
+        <img src="icons/vp-icon-people.svg" alt="" width="48" height="48" />
+        <h3>Sponsor</h3>
+        <p>Businesses can sponsor the gala or a program year.</p>
+        <p><a class="vp-btn vp-btn--secondary" href="contact.html">Ask about sponsorship</a></p>
+        <p class="small"><Todo id="T2">Sponsorship levels to add</Todo></p>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="wrap">
+      <h2>Where the money goes</h2>
+      <p><Todo id="P7">Link to the latest annual report and a short breakdown of spending</Todo></p>
+    </div>
+  </section>
+</Base>

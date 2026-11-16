@@ -1,0 +1,130 @@
+---
+import Base from '../layouts/Base.astro';
+import Todo from '../components/Todo.astro';
+import Quote from '../components/Quote.astro';
+import DemoFormNote from '../components/DemoFormNote.astro';
+import { contact } from '../data/site';
+---
+<Base
+  title="Hire People with Disabilities in San Diego: Employer Partnerships | Vantage Point"
+  description="Pre-screened candidates, a job coach on site at no cost to you, and one contact for any issue. Tell Vantage Point about your open roles."
+  current="employers"
+>
+  <section class="vp-hero vp-on-brand">
+    <div class="vp-hero__copy">
+      <p class="vp-eyebrow">For employers</p>
+      <h1>Reliable hires, with support built in</h1>
+      <p class="vp-hero__lead">We send candidates who fit the role, train them on site, and stay on call after day one.</p>
+      <div class="vp-btn-row">
+        <a class="vp-btn vp-btn--primary" href="#roles">Tell us about your roles</a>
+      </div>
+    </div>
+    <img class="vp-hero__media" src="images/happy-warehouse.jpg" alt="A smiling warehouse worker in uniform stands between tall shelves." width="1400" height="933" />
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">Why hire through us</p>
+        <h2>What you get</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="icon-card">
+          <img src="icons/vp-icon-people.svg" alt="" width="48" height="48" />
+          <h3>Pre-screened candidates</h3>
+          <p>We learn the job first, then send only people whose skills and interests match it.</p>
+        </div>
+        <div class="icon-card">
+          <img src="icons/vp-icon-coaching.svg" alt="" width="48" height="48" />
+          <h3>A job coach on site</h3>
+          <p><Todo id="F12">A Vantage Point coach trains the new hire alongside your team, at no cost to you.</Todo></p>
+        </div>
+        <div class="icon-card">
+          <img src="icons/vp-icon-support.svg" alt="" width="48" height="48" />
+          <h3>One contact for anything</h3>
+          <p><Todo id="F12">A named contact handles questions, schedule changes or concerns, for as long as the person works with you.</Todo></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="wrap split">
+      <div>
+        <div class="vp-section-header">
+          <p class="vp-eyebrow">The numbers</p>
+          <h2>Our people stay and earn</h2>
+        </div>
+        <p>Clients placed in 2025 earned an average of <strong>$22.22 an hour</strong>, and <Todo id="F15"><strong>61%</strong> were still in the job after three months</Todo>. Across all years we have made <strong>780+</strong> placements.</p>
+        <h3 style="margin-top: var(--space-8)">How it works</h3>
+        <ol class="prose">
+          <li>Tell us about the role and your workplace.</li>
+          <li>We visit, analyze the tasks and send matched candidates.</li>
+          <li>You interview and hire as you normally would.</li>
+          <li>Our coach supports the new hire on site until they are independent.</li>
+        </ol>
+      </div>
+      <img class="rounded" src="images/happy-grocers.jpg" alt="Two grocery workers in aprons smile in front of stocked shelves." width="1400" height="934" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">Employer partners</p>
+        <h2>Businesses that hire with us</h2>
+      </div>
+      <Todo id="P1" block>
+        <ul class="chips" aria-label="Employers (placeholders)">
+          {Array.from({ length: 10 }, (_, i) => <li>Employer name {i + 1}</li>)}
+        </ul>
+      </Todo>
+      <div style="margin-top: var(--space-8)">
+        <Quote cite="Hiring manager, regional retailer" todo="P2">
+          <p>“Our new hire was trained before we had to think about it, and we had one phone number for every question. We have hired three more since.”</p>
+        </Quote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">Incentives</p>
+        <h2>Hiring incentives you may qualify for</h2>
+        <p>Ask your tax adviser to confirm eligibility. We help with the paperwork.</p>
+      </div>
+      <Todo id="F13" block>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Incentive</th><th scope="col">What it is</th><th scope="col">Amount</th></tr></thead>
+            <tbody>
+              <tr><td>Work Opportunity Tax Credit (WOTC)</td><td>Federal tax credit for hiring from certain groups, including vocational rehabilitation referrals</td><td>To verify</td></tr>
+              <tr><td>Disabled Access Credit</td><td>Federal credit for small businesses toward accessibility costs</td><td>To verify</td></tr>
+              <tr><td>Architectural Barrier Removal Deduction</td><td>Federal deduction for removing physical barriers</td><td>To verify</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </Todo>
+    </div>
+  </section>
+
+  <section class="section" id="roles">
+    <div class="wrap split split--top">
+      <div class="prose">
+        <p class="vp-eyebrow">Get in touch</p>
+        <h2>Tell us about your roles</h2>
+        <p>Four fields. We reply within <Todo id="T1">two business days</Todo>.</p>
+        <p>Prefer email? <a href={`mailto:${contact.employerEmail}`}><Todo id="F12">{contact.employerEmail}</Todo></a></p>
+      </div>
+      <form class="form-card" data-demo-form aria-label="Employer inquiry">
+        <div class="field"><label for="e-name">Your name</label><input id="e-name" autocomplete="name" required /></div>
+        <div class="field"><label for="e-co">Company</label><input id="e-co" autocomplete="organization" required /></div>
+        <div class="field"><label for="e-email">Work email or phone</label><input id="e-email" autocomplete="email" required /></div>
+        <div class="field"><label for="e-roles">Roles you are hiring for</label><textarea id="e-roles" placeholder="For example: two stock associates, Oceanside, 25 hours a week"></textarea></div>
+        <button class="vp-btn vp-btn--primary" type="submit">Send</button>
+        <DemoFormNote />
+      </form>
+    </div>
+  </section>
+</Base>

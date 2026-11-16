@@ -1,0 +1,153 @@
+---
+import Base from '../layouts/Base.astro';
+import Todo from '../components/Todo.astro';
+import DemoFormNote from '../components/DemoFormNote.astro';
+import { contact } from '../data/site';
+
+const faqs = [
+  { q: 'Who can get help from Vantage Point?', a: 'Adults with a disability who want paid work in the community. That includes physical, intellectual, developmental, sensory, mental health and learning disabilities. You do not need work experience.' },
+  { q: 'Does it cost anything?', a: 'No cost to you when the Department of Rehabilitation or your Regional Center pays for your services. Most of our clients pay nothing.' },
+  { q: 'Will a job affect my SSI or SSDI?', a: 'Working can change your benefits, but many people earn more overall. Before you start a job, talk with a benefits counselor. DOR can connect you with one at no cost. We do not give benefits advice ourselves.' },
+  { q: 'What kinds of jobs do people get?', a: 'Office, retail, food service, healthcare support, warehouse and logistics, and skilled trades. The job depends on what you want to do.' },
+  { q: 'What if I don\'t drive?', a: 'We plan around how you get to work, including public transit and paratransit, and look for jobs on routes you can use.' },
+  { q: 'Can I work from home?', a: 'Yes, if remote work suits your goals. Some of our clients work remotely, and we serve some clients remotely.' },
+];
+---
+<Base
+  title="How to Get Job Help Through the California Department of Rehabilitation | Vantage Point"
+  description="Free job placement and coaching for adults with disabilities. Three steps to get started with Vantage Point through the California Department of Rehabilitation (DOR)."
+  current="job"
+>
+  <section class="page-hero vp-on-brand">
+    <div class="wrap">
+      <p class="vp-eyebrow">Find a job</p>
+      <h1>Get help finding a job you want</h1>
+      <p class="lead">We help adults with disabilities find paid jobs in the community and keep them. <Todo id="F6">There is no cost to you when DOR or your Regional Center funds your services.</Todo></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split split--top">
+      <div class="prose">
+        <h2>What is DOR?</h2>
+        <p>The California Department of Rehabilitation (DOR) is the state agency that pays for job services for people with disabilities. You open a case with DOR, and DOR pays Vantage Point to help you.</p>
+        <p>Do you already get services from a Regional Center? You may be able to work with us through your Regional Center's Self-Determination program instead.</p>
+      </div>
+      <div class="callout">
+        <h3>Not sure where to begin?</h3>
+        <p>Call us at <a href={contact.phoneHref}><Todo id="F2">{contact.phone}</Todo></a> or use the form below. We will help you open a DOR case.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand" id="how">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">How it works</p>
+        <h2>Three steps, and what to expect at each one</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Open a DOR case</h3>
+          <p>Apply online or call your local DOR office. A DOR counselor meets with you to talk about your goals and checks that you are eligible.</p>
+          <span class="when"><Todo id="F7">About 2 to 8 weeks</Todo></span>
+        </li>
+        <li>
+          <h3>Ask for Vantage Point</h3>
+          <p>Tell your counselor you want to work with Vantage Point. Your counselor sends us a referral.</p>
+          <span class="when">We are assigned in 14 to 28 days</span>
+        </li>
+        <li>
+          <h3>Meet your job developer</h3>
+          <p>We call you to set up a first meeting. Together we learn what you want, build your résumé and start applying.</p>
+          <span class="when"><Todo id="F7">First job usually in 2 to 4 months</Todo></span>
+        </li>
+      </ol>
+      <p class="muted small" style="margin-top: var(--space-4)">After you are hired, a job coach helps you learn the job, and we keep in touch with you and your employer.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">Programs</p>
+        <h2>Which program fits you?</h2>
+        <p>Programs are listed by who they are for. Your counselor or Regional Center coordinator can help you choose.</p>
+      </div>
+      <div class="grid grid--3">
+        <article class="vp-card">
+          <img class="vp-card__media" src="images/happy-retail-counter.jpg" alt="A shop employee smiles as she hands a card back to a customer." width="1400" height="933" loading="lazy" />
+          <div class="vp-card__body">
+            <h3>Referred by DOR</h3>
+            <p><Todo id="F9">Job placement, coaching and support after hiring for people with a DOR case.</Todo></p>
+          </div>
+        </article>
+        <article class="vp-card">
+          <img class="vp-card__media" src="images/happy-workshop-goggles.jpg" alt="A workshop employee lifts her safety goggles and smiles." width="1400" height="934" loading="lazy" />
+          <div class="vp-card__body">
+            <h3>Regional Center clients</h3>
+            <p><Todo id="F9">Employment services paid through the Regional Center Self-Determination Program.</Todo></p>
+          </div>
+        </article>
+        <article class="vp-card">
+          <img class="vp-card__media" src="images/coaching-whiteboard.jpg" alt="A man using a wheelchair, seen from behind, talks with a colleague standing at a whiteboard." width="934" height="1400" loading="lazy" />
+          <div class="vp-card__body">
+            <h3>Time To Shine and WorkWell</h3>
+            <p><Todo id="F9">Who each program is for and who pays: to be written by Vantage Point.</Todo></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint" id="start">
+    <div class="wrap split split--top">
+      <div class="prose">
+        <p class="vp-eyebrow">Start here</p>
+        <h2>Ask us to help you start</h2>
+        <p>Fill in this short form and we will call you, usually within two business days. You can also fill it in for someone you support.</p>
+        <p>We will not ask about your disability here. We talk about that in person, only as much as you choose.</p>
+      </div>
+      <form class="form-card" data-demo-form aria-label="Help me start">
+        <div class="field-row">
+          <div class="field"><label for="s-name">Your name</label><input id="s-name" name="name" autocomplete="name" required /></div>
+          <div class="field"><label for="s-phone">Phone</label><input id="s-phone" name="phone" type="tel" autocomplete="tel" required /></div>
+        </div>
+        <div class="field"><label for="s-email">Email <span class="hint">(optional)</span></label><input id="s-email" name="email" type="email" autocomplete="email" /></div>
+        <fieldset class="field">
+          <legend>Do you have a DOR case?</legend>
+          <div class="radio-row">
+            <label><input type="radio" name="dor" value="yes" /> Yes</label>
+            <label><input type="radio" name="dor" value="no" /> No</label>
+            <label><input type="radio" name="dor" value="unsure" /> Not sure</label>
+          </div>
+        </fieldset>
+        <fieldset class="field">
+          <legend>Who is this for?</legend>
+          <div class="radio-row">
+            <label><input type="radio" name="for" value="me" /> Me</label>
+            <label><input type="radio" name="for" value="someone" /> Someone I support</label>
+          </div>
+        </fieldset>
+        <button class="vp-btn vp-btn--primary" type="submit">Request a call</button>
+        <DemoFormNote />
+      </form>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">Questions</p>
+        <h2>Common questions</h2>
+      </div>
+      <Todo id="F16" block>
+        <div class="faq">
+          {faqs.map((f) => (
+            <details><summary>{f.q}</summary><div><p>{f.a}</p></div></details>
+          ))}
+        </div>
+      </Todo>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,56 @@
+/* Vantage Point — generated from tokens.json */
+:root {
+  --brand-navy: #032F60;
+  --brand-sky: #1BB7E8;
+  --brand-sky-deep: #08759F;
+  --brand-sky-tint: #E8F7FD;
+  --brand-amber: #F4A72C;
+  --neutral-white: #FFFFFF;
+  --neutral-sand: #F7F4EE;
+  --neutral-ink: #1B2733;
+  --neutral-slate: #4A5A70;
+  --neutral-border: #6B7A8F;
+  --neutral-line: #D5DCE5;
+  --bg-page: var(--neutral-white);
+  --bg-alt: var(--neutral-sand);
+  --bg-tint: var(--brand-sky-tint);
+  --bg-brand: var(--brand-navy);
+  --text-heading: var(--brand-navy);
+  --text-body: var(--neutral-ink);
+  --text-muted: var(--neutral-slate);
+  --text-link: var(--brand-sky-deep);
+  --text-on-brand: #FFFFFF;
+  --text-on-brand-muted: #DCE6F2;
+  --text-on-brand-accent: var(--brand-sky);
+  --action-primary: var(--brand-navy);
+  --action-on-brand: var(--brand-sky);
+  --action-give: var(--brand-amber);
+  --focus-ring: var(--brand-sky-deep);
+  --status-success: #1F7A4D;
+  --status-error: #B3322A;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+  --radius-full: 999px;
+  --shadow-card: 0 1px 2px rgba(3, 47, 96, 0.08), 0 4px 12px rgba(3, 47, 96, 0.08);
+  --font-display: "Libre Franklin", "Franklin Gothic Medium", Arial, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", Arial, sans-serif;
+}
+.display { font: 600 48px/52px var(--font-display); }
+.h1 { font: 600 36px/42px var(--font-display); }
+.h2 { font: 600 28px/34px var(--font-display); }
+.h3 { font: 600 20px/26px var(--font-display); }
+.stat { font: 600 40px/44px var(--font-display); }
+.lead { font: 400 20px/32px var(--font-body); }
+.body { font: 400 17px/28px var(--font-body); }
+.small { font: 400 14px/22px var(--font-body); }
+.label { font: 600 13px/16px var(--font-body); letter-spacing: 1.75px; text-transform: uppercase; }

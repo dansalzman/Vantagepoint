@@ -1,0 +1,96 @@
+---
+import Base from '../layouts/Base.astro';
+import Todo from '../components/Todo.astro';
+import Quote from '../components/Quote.astro';
+import DemoFormNote from '../components/DemoFormNote.astro';
+
+const questions = [
+  { id: 'cost', q: 'What does it cost?', a: 'Nothing to your family when the Department of Rehabilitation (DOR) or the Regional Center pays for services, which covers most of the people we serve.' },
+  { id: 'who', q: 'Who will be working with my family member?', a: 'A job developer who finds the job, and a job coach who helps at work. Every staff member is background-checked and trained in disability employment.' },
+  { id: 'match', q: 'How do you choose the job?', a: 'We start with what your family member enjoys and does well, then look for employers that fit. They decide whether to take a job; we never place someone in work they did not choose.' },
+  { id: 'after', q: 'What happens after they are hired?', a: 'A job coach helps them learn the tasks and routines on site, then steps back as they become independent. We stay in touch with the employer and step in again if something changes.' },
+  { id: 'benefits', q: 'Will working affect SSI, SSDI or Medi-Cal?', a: 'It can, and many people still come out ahead. Before any job offer is accepted, we connect you with a benefits counselor through DOR at no cost. We do not give benefits advice ourselves.' },
+  { id: 'role', q: 'What is my role as a family member?', a: 'As much or as little as your family member wants. You are welcome at the first meeting, and with their permission we keep you updated on progress.' },
+];
+---
+<Base
+  title="Job Support for an Adult Family Member with a Disability | For Families | Vantage Point"
+  description="Answers for parents, guardians and caregivers: cost, safety, job matching, support after hiring, benefits and the family's role. Vantage Point, Carlsbad, CA."
+  current="families"
+>
+  <section class="page-hero vp-on-brand">
+    <div class="wrap">
+      <p class="vp-eyebrow">For families and guardians</p>
+      <h1>When someone you love is ready to work</h1>
+      <p class="lead">Straight answers to the questions families ask us most, from cost to benefits to what happens on the first day.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <nav aria-label="Questions on this page" class="chips-nav">
+        <ul class="chips">
+          {questions.map((x) => <li><a href={`#${x.id}`}>{x.q}</a></li>)}
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section section--sand" style="padding-top: var(--space-12)">
+    <div class="wrap">
+      <div class="grid grid--2">
+        {questions.map((x) => (
+          <article id={x.id} class="vp-card vp-card--raised">
+            <div class="vp-card__body">
+              <h2 class="h3" style="font-size:20px;line-height:26px;margin:0">{x.q}</h2>
+              <p><Todo id={x.id === 'benefits' ? 'F11' : 'F10'}>{x.a}</Todo></p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">From families</p>
+        <h2>What other families say</h2>
+      </div>
+      <div class="grid grid--2">
+        <Quote cite="Parent of a client, Oceanside" todo="P3">
+          <p>“I worried about whether he would be safe and respected. His coach checked in with us every week until he was settled.”</p>
+        </Quote>
+        <Quote cite="Guardian of a client, Escondido" todo="P3">
+          <p>“She picked the job herself. That mattered more to her than anything we could have arranged.”</p>
+        </Quote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint" id="talk">
+    <div class="wrap split split--top">
+      <div class="prose">
+        <p class="vp-eyebrow">Talk to us</p>
+        <h2>Ask for a call back</h2>
+        <p>A staff member will call to answer your questions. There is no obligation, and your family member does not need a DOR case yet.</p>
+        <img class="rounded" src="images/happy-team.jpg" alt="Coworkers laugh together over a notebook." width="1400" height="933" loading="lazy" />
+      </div>
+      <form class="form-card" data-demo-form aria-label="Family call-back request">
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" autocomplete="name" required /></div>
+        <div class="field-row">
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" type="tel" autocomplete="tel" required /></div>
+          <div class="field"><label for="f-time">Best time to call</label>
+            <select id="f-time"><option>Morning</option><option>Afternoon</option><option>Any time</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="f-rel">Your relationship</label>
+          <select id="f-rel"><option>Parent</option><option>Guardian or conservator</option><option>Other family member</option><option>Caregiver or support staff</option></select>
+        </div>
+        <div class="field"><label for="f-q">What would you like to ask? <span class="hint">(optional)</span></label><textarea id="f-q"></textarea></div>
+        <button class="vp-btn vp-btn--primary" type="submit">Request a call</button>
+        <DemoFormNote />
+      </form>
+    </div>
+  </section>
+</Base>

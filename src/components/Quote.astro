@@ -1,0 +1,17 @@
+---
+// Testimonial block. `sample` marks quotes written for the demo; these must be
+// replaced with real, released quotes and never paired with a stock model.
+import Todo from './Todo.astro';
+interface Props { cite: string; todo?: string; initials?: string }
+const { cite, todo, initials = '“' } = Astro.props;
+---
+<figure class="quote">
+  <div class="ring-placeholder" aria-hidden="true"><span>{initials}</span></div>
+  <div>
+    {todo && <span class="quote__sample">Sample quote, to be replaced</span>}
+    <blockquote>
+      {todo ? <Todo id={todo}><slot /></Todo> : <slot />}
+    </blockquote>
+    <figcaption><cite>{cite}</cite></figcaption>
+  </div>
+</figure>

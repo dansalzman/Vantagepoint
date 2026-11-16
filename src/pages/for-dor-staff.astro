@@ -1,0 +1,119 @@
+---
+import Base from '../layouts/Base.astro';
+import Todo from '../components/Todo.astro';
+import Stats from '../components/Stats.astro';
+import { contact } from '../data/site';
+
+const districts = [
+  'San Diego', 'Greater Los Angeles', 'Orange/San Gabriel', 'Santa Barbara', 'Northern Sierra', 'San Joaquin Valley',
+  'District 7 (to confirm)', 'District 8 (to confirm)', 'District 9 (to confirm)',
+];
+const services = [
+  { name: 'Intake', text: 'First meeting with the client, goals and job preferences, release forms.' },
+  { name: 'Employment Preparation', text: 'Résumé, interview practice, workplace skills and disclosure planning.' },
+  { name: 'Job Development and Placement', text: 'Employer outreach matched to the client, applications, interviews and offer.' },
+  { name: 'Retention', text: 'On-site job coaching, employer check-ins and follow-up after placement.' },
+];
+---
+<Base
+  title="DOR Referral Information for Counselors | Vantage Point"
+  description="How to refer a DOR client to Vantage Point: required forms (DR 215, DR 260), 14 to 28 day assignment, nine authorized districts, services and outcomes."
+  current="dor"
+>
+  <section class="page-hero vp-on-brand">
+    <div class="wrap">
+      <p class="vp-eyebrow">For DOR staff</p>
+      <h1>Refer a client to Vantage Point</h1>
+      <p class="lead">Approved DOR vendor in nine districts, including Blind Field Services. Clients are assigned within 14 to 28 days of referral.</p>
+      <div class="vp-btn-row">
+        <a class="vp-btn vp-btn--primary" href={`mailto:${contact.referralEmail}`}>Email a referral</a>
+        <a class="vp-btn vp-btn--secondary" href="#forms">Download forms</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split split--top">
+      <div>
+        <div class="vp-section-header">
+          <p class="vp-eyebrow">Referral steps</p>
+          <h2>How to refer</h2>
+        </div>
+        <ol class="prose">
+          <li>Complete the DR 215 authorization and DR 260 referral.</li>
+          <li>Send both, with the client's IPE if available, to our secure referral inbox: <a href={`mailto:${contact.referralEmail}`}><Todo id="F2">{contact.referralEmail}</Todo></a>.</li>
+          <li>We confirm receipt and assign a job developer within 14 to 28 days.</li>
+          <li>You receive progress reports at each service milestone.</li>
+        </ol>
+      </div>
+      <div class="callout">
+        <h3>Priority or urgent referrals</h3>
+        <p>Call <a href={contact.phoneHref}><Todo id="F2">{contact.phone}</Todo></a> and ask for the referral coordinator.</p>
+        <p><strong>Current wait for assignment:</strong> <Todo id="F14">to be posted, with the date it was updated</Todo></p>
+        <p><strong>Languages:</strong> <Todo id="F14">to confirm</Todo></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">Services</p>
+        <h2>Services, in DOR terms</h2>
+        <p>How our programs map to the service categories in the DOR provider directory.</p>
+      </div>
+      <div class="grid grid--4">
+        {services.map((s) => (
+          <div class="vp-card"><div class="vp-card__body"><h3>{s.name}</h3><p>{s.text}</p></div></div>
+        ))}
+      </div>
+      <p class="small muted" style="margin-top: var(--space-4)">Program names: <Todo id="F9">Time To Shine, WorkWell and Self-Determination, mapped to these categories</Todo></p>
+    </div>
+  </section>
+
+  <section class="section" id="areas">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">Service areas</p>
+        <h2>Authorized districts and contacts</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">DOR district</th><th scope="col">Vantage Point contact</th><th scope="col">Email or phone</th></tr></thead>
+          <tbody>
+            {districts.map((d, i) => (
+              <tr>
+                <td>{i >= 6 ? <Todo id="F18">{d}</Todo> : d}</td>
+                <td><Todo id="F14">Name</Todo></td>
+                <td><Todo id="F14">Contact</Todo></td>
+              </tr>
+            ))}
+            <tr><td>Remote services</td><td><Todo id="F14">Name</Todo></td><td><Todo id="F14">Contact</Todo></td></tr>
+            <tr><td>Blind Field Services</td><td><Todo id="F14">Name</Todo></td><td><Todo id="F14">Contact</Todo></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap">
+      <Stats eyebrow="Outcomes for referred clients" />
+    </div>
+  </section>
+
+  <section class="section" id="forms">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">Downloads</p>
+        <h2>Forms and documents</h2>
+      </div>
+      <ul class="grid grid--3" style="list-style:none;padding:0;margin:0">
+        <li class="vp-card"><div class="vp-card__body"><h3>Referral checklist</h3><p>What to send with a referral.</p><a class="vp-card__link" href="open-items.html#F14">PDF, link to add</a></div></li>
+        <li class="vp-card"><div class="vp-card__body"><h3>Program overview</h3><p>Services, staffing and outcomes on one page.</p><a class="vp-card__link" href="open-items.html#F14">PDF, link to add</a></div></li>
+        <li class="vp-card"><div class="vp-card__body"><h3>Service area map</h3><p>Districts and remote coverage.</p><a class="vp-card__link" href="open-items.html#F18">PDF, link to add</a></div></li>
+      </ul>
+      <p class="small muted" style="margin-top: var(--space-6)">Accreditation: <Todo id="P5">list CARF or other accreditation here if held</Todo></p>
+    </div>
+  </section>
+</Base>

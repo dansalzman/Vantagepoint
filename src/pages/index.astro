@@ -1,0 +1,141 @@
+---
+import Base from '../layouts/Base.astro';
+import Todo from '../components/Todo.astro';
+import Stats from '../components/Stats.astro';
+import Quote from '../components/Quote.astro';
+import { contact } from '../data/site';
+
+const doors = [
+  { href: 'find-a-job.html', icon: 'vp-icon-jobs', title: 'Find a job', text: 'You have a disability and want paid work. See how it works, what it costs and how long it takes.', cta: 'Start here' },
+  { href: 'for-families.html', icon: 'vp-icon-people', title: 'For families', text: 'Your son, daughter or someone you support wants to work. Get answers on safety, cost and benefits.', cta: 'Family guide' },
+  { href: 'for-employers.html', icon: 'vp-icon-placed', title: 'For employers', text: 'Hire pre-screened candidates with a job coach on site and one contact for anything that comes up.', cta: 'Hire with us' },
+  { href: 'for-dor-staff.html', icon: 'vp-icon-coaching', title: 'For DOR staff', text: 'Refer a client: forms, timelines, service areas and outcomes in one place.', cta: 'Refer a client' },
+];
+---
+<Base
+  title="Employment Services for People with Disabilities | San Diego and Southern California | Vantage Point"
+  description="Vantage Point places people with disabilities in competitive jobs at real wages: 780+ placements, $22.22 average hourly wage in 2025. A DOR-approved nonprofit in Carlsbad, CA."
+>
+  <section class="vp-hero vp-on-brand">
+    <div class="vp-hero__copy">
+      <p class="vp-eyebrow">Jobs and career support for people with disabilities</p>
+      <h1><Todo id="F5">780+ people with disabilities placed in competitive jobs, at an average of $22.22 an hour.</Todo></h1>
+      <p class="vp-hero__lead">Real jobs at real wages, one person at a time. We match each person's interests to an employer, then stay on to coach.</p>
+      <div class="vp-btn-row">
+        <a class="vp-btn vp-btn--primary" href="find-a-job.html#start">Get started</a>
+        <a class="vp-btn vp-btn--secondary" href="for-employers.html">Hire with us</a>
+      </div>
+    </div>
+    <img class="vp-hero__media" src="images/hero-office-meeting-01.jpg" alt="Four colleagues, one using a wheelchair, talk around a round table in a bright office." width="1400" height="933" />
+  </section>
+
+  <div class="wrap stats-strip">
+    <Stats eyebrow="Our results" />
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">Where to start</p>
+        <h2>Who are you here for?</h2>
+        <p>Choose the path that fits. Each one answers the questions people in your position ask first.</p>
+      </div>
+      <div class="grid grid--4">
+        {doors.map((d) => (
+          <a class="door" href={d.href}>
+            <img src={`icons/${d.icon}.svg`} alt="" width="48" height="48" />
+            <h3>{d.title}</h3>
+            <p>{d.text}</p>
+            <span class="vp-card__link">{d.cta} →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="wrap split">
+      <div>
+        <div class="vp-section-header">
+          <p class="vp-eyebrow">Our approach</p>
+          <h2>Competitive jobs only. No group crews, no sheltered work.</h2>
+        </div>
+        <div class="prose">
+          <p>Every person we place works alongside coworkers without disabilities, for the same pay and in the same roles. We start with what the person wants to do, find the employer, and keep coaching after the first day.</p>
+          <ul>
+            <li><strong>Matched to interests.</strong> Job search begins with what you are good at and care about.</li>
+            <li><strong>Coaching on the job.</strong> A job coach helps you learn the role and settle in.</li>
+            <li><strong>Support that continues.</strong> We stay in touch with you and your employer after you are hired.</li>
+          </ul>
+        </div>
+      </div>
+      <img class="rounded" src="images/office-colleagues-computers.jpg" alt="A man using a wheelchair works at a laptop while a coworker leans in, both smiling." width="1400" height="934" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">How it works</p>
+        <h2>Three steps from first call to first paycheck</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Open a DOR case</h3><p>Apply with the California Department of Rehabilitation. We can help you start if you have not applied.</p><span class="when">Week 1</span></li>
+        <li><h3>Ask for Vantage Point</h3><p>Tell your DOR counselor you want Vantage Point. They send us a referral.</p><span class="when">Assigned in 14 to 28 days</span></li>
+        <li><h3>Meet your job developer</h3><p>We call you, learn your goals and start the search together.</p><span class="when"><Todo id="F7">Typical time to a job: to confirm</Todo></span></li>
+      </ol>
+      <p style="margin-top: var(--space-6)"><a class="vp-btn vp-btn--primary" href="find-a-job.html">See the full guide</a></p>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap">
+      <Quote cite="Client, placed in 2025" todo="P4">
+        <p>“They asked what I wanted to do before they asked what I couldn't do. Six weeks later I had a job I actually like.”</p>
+      </Quote>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="vp-section-header">
+        <p class="vp-eyebrow">Recent placements</p>
+        <h2>Employers who have hired through Vantage Point</h2>
+      </div>
+      <Todo id="P1" block>
+        <ul class="chips" aria-label="Employers (placeholders)">
+          {Array.from({ length: 8 }, (_, i) => <li>Employer name {i + 1}</li>)}
+        </ul>
+      </Todo>
+      <p style="margin-top: var(--space-6)"><a href="results.html">See all results and placements →</a></p>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="wrap split">
+      <div>
+        <div class="vp-section-header">
+          <p class="vp-eyebrow">Where we work</p>
+          <h2>Based in Carlsbad, serving <Todo id="F4">San Diego, Southern California and remote clients</Todo></h2>
+        </div>
+        <p>Vantage Point is an approved vendor of the California Department of Rehabilitation in nine DOR districts, including Blind Field Services. If you live outside San Diego County, ask us. We may still be able to serve you.</p>
+        <p><a href="for-dor-staff.html#areas">See all service areas →</a></p>
+      </div>
+      <dl class="facts">
+        <div><dt>Office</dt><dd><Todo id="F2">{contact.street}</Todo>, {contact.city}</dd></div>
+        <div><dt>Hours</dt><dd><Todo id="F3">{contact.hours}</Todo>. {contact.appointment}.</dd></div>
+        <div><dt>Call</dt><dd><a href={contact.phoneHref}><Todo id="F2">{contact.phone}</Todo></a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section section--navy cta-band vp-on-brand">
+    <div class="wrap">
+      <div>
+        <h2>Help someone get to work</h2>
+        <p>Gifts fund job coaching and support that public funding does not cover.</p>
+      </div>
+      <a class="vp-btn vp-btn--give" href="donate.html">Donate</a>
+    </div>
+  </section>
+</Base>

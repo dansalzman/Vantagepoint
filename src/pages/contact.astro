@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import Todo from '../components/Todo.astro';
+import DemoFormNote from '../components/DemoFormNote.astro';
+import { contact } from '../data/site';
+---
+<Base
+  title="Contact Vantage Point, Carlsbad, CA | Disability Employment Services"
+  description="Call, email or visit Vantage Point in Carlsbad, California. Tell us whether you are a job seeker, family member, employer or DOR counselor and we will route your message."
+>
+  <section class="page-hero vp-on-brand">
+    <div class="wrap">
+      <p class="vp-eyebrow">Contact</p>
+      <h1>Talk to us</h1>
+      <p class="lead">Tell us who you are and we will send your message to the right person.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split split--top">
+      <dl class="facts">
+        <div><dt>Call</dt><dd><a href={contact.phoneHref}><Todo id="F2">{contact.phone}</Todo></a></dd></div>
+        <div><dt>Email</dt><dd><a href={`mailto:${contact.email}`}><Todo id="F2">{contact.email}</Todo></a></dd></div>
+        <div><dt>Office</dt><dd><Todo id="F2">{contact.street}</Todo><br />{contact.city}</dd></div>
+        <div><dt>Hours</dt><dd><Todo id="F3">{contact.hours}</Todo><br />{contact.appointment}</dd></div>
+        <div><dt>DOR referrals</dt><dd><a href="for-dor-staff.html">Referral information for counselors</a></dd></div>
+      </dl>
+      <form class="form-card" data-demo-form aria-label="Contact Vantage Point">
+        <fieldset class="field">
+          <legend>I am a…</legend>
+          <div class="radio-row">
+            <label><input type="radio" name="who" value="seeker" /> Job seeker</label>
+            <label><input type="radio" name="who" value="family" /> Family member</label>
+            <label><input type="radio" name="who" value="employer" /> Employer</label>
+            <label><input type="radio" name="who" value="dor" /> DOR counselor</label>
+            <label><input type="radio" name="who" value="other" /> Other</label>
+          </div>
+        </fieldset>
+        <div class="field-row">
+          <div class="field"><label for="c-name">Name</label><input id="c-name" autocomplete="name" required /></div>
+          <div class="field"><label for="c-phone">Phone</label><input id="c-phone" type="tel" autocomplete="tel" /></div>
+        </div>
+        <div class="field"><label for="c-email">Email</label><input id="c-email" type="email" autocomplete="email" required /></div>
+        <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" required></textarea></div>
+        <button class="vp-btn vp-btn--primary" type="submit">Send message</button>
+        <DemoFormNote />
+      </form>
+    </div>
+  </section>
+</Base>

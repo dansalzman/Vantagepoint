@@ -1,0 +1,171 @@
+---
+import '../styles/tokens.css';
+import '../styles/bundle.css';
+import '../styles/site.css';
+import Todo from '../components/Todo.astro';
+import { contact, nav } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  current?: string;
+}
+const { title, description, current } = Astro.props;
+const year = 2026;
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@type': ['NGO', 'LocalBusiness'],
+  name: 'Vantage Point',
+  description: 'Disability employment services: job placement and coaching for people with disabilities in San Diego and Southern California.',
+  url: 'https://usevantagepoint.com/',
+  telephone: contact.phone,
+  email: contact.email,
+  address: { '@type': 'PostalAddress', streetAddress: contact.street, addressLocality: 'Carlsbad', addressRegion: 'CA', postalCode: '92008', addressCountry: 'US' },
+  areaServed: 'Southern California',
+  nonprofitStatus: 'Nonprofit501c3',
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="logos/vp-logo-icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
+    <script is:inline>
+      try { if (localStorage.getItem('vp-hide-todos') === '1') document.documentElement.classList.add('hide-todos'); } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="demo-bar" role="region" aria-label="Demo notice">
+      <div class="wrap demo-bar__inner">
+        <p><strong>Demo prototype.</strong> Highlighted text is a placeholder that Vantage Point staff need to supply or confirm.</p>
+        <div class="demo-bar__actions">
+          <button type="button" class="demo-bar__toggle" aria-pressed="true" data-todo-toggle>Highlights on</button>
+          <a href="open-items.html">See all open items</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="topbar">
+      <div class="wrap topbar__inner">
+        <span>Call <a href={contact.phoneHref}><Todo id="F2">{contact.phone}</Todo></a></span>
+        <span class="topbar__right">
+          <a href="open-items.html#F17" lang="es">Español (próximamente)</a>
+          <a href="donate.html">Donate</a>
+        </span>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <a href="index.html" class="site-header__logo" aria-label="Vantage Point home">
+          <img src="logos/vp-logo-horizontal.svg" alt="Vantage Point" width="220" height="53" />
+        </a>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+          <span class="nav-toggle__bars" aria-hidden="true"></span>Menu
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Main">
+          <ul>
+            {nav.map((n) => (
+              <li><a href={n.href} aria-current={current === n.key ? 'page' : undefined}>{n.label}</a></li>
+            ))}
+          </ul>
+          <div class="site-nav__ctas">
+            <a class="vp-btn vp-btn--give" href="donate.html">Donate</a>
+            <a class="vp-btn vp-btn--primary" href="find-a-job.html#start">Get started</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer vp-on-brand">
+      <div class="wrap site-footer__grid">
+        <div class="site-footer__brand">
+          <img src="logos/vp-logo-stacked-reversed.svg" alt="Vantage Point" width="150" height="120" />
+          <p>Jobs and career support for people with disabilities. A 501(c)(3) nonprofit and an approved vendor of the California Department of Rehabilitation.</p>
+        </div>
+        <div>
+          <h2 class="site-footer__h">Contact</h2>
+          <address>
+            <Todo id="F2">{contact.street}</Todo><br />{contact.city}<br />
+            <a href={contact.phoneHref}><Todo id="F2">{contact.phone}</Todo></a><br />
+            <a href={`mailto:${contact.email}`}><Todo id="F2">{contact.email}</Todo></a>
+          </address>
+          <p><Todo id="F3">{contact.hours}</Todo><br />{contact.appointment}</p>
+        </div>
+        <div>
+          <h2 class="site-footer__h">Who we serve</h2>
+          <ul class="site-footer__links">
+            <li><a href="find-a-job.html">Find a job</a></li>
+            <li><a href="for-families.html">Families and guardians</a></li>
+            <li><a href="for-employers.html">Employers</a></li>
+            <li><a href="for-dor-staff.html">DOR counselors</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="site-footer__h">Organization</h2>
+          <ul class="site-footer__links">
+            <li><a href="results.html">Results</a></li>
+            <li><a href="about.html">About and team</a></li>
+            <li><a href="about.html#careers">Work at Vantage Point</a></li>
+            <li><a href="donate.html">Donate and gala</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap site-footer__legal">
+        <p>© {year} Vantage Point. <a href="open-items.html#T3">Accessibility statement</a> · <a href="open-items.html#T4">Privacy policy</a></p>
+        <p>Photographs are stock images used as placeholders and do not show Vantage Point clients. <a href="open-items.html#B1">B1</a></p>
+      </div>
+    </footer>
+
+    <script is:inline>
+      (function () {
+        var root = document.documentElement;
+        var t = document.querySelector('[data-todo-toggle]');
+        function sync() {
+          var off = root.classList.contains('hide-todos');
+          t.setAttribute('aria-pressed', off ? 'false' : 'true');
+          t.textContent = off ? 'Highlights off' : 'Highlights on';
+        }
+        if (t) {
+          sync();
+          t.addEventListener('click', function () {
+            root.classList.toggle('hide-todos');
+            try { localStorage.setItem('vp-hide-todos', root.classList.contains('hide-todos') ? '1' : '0'); } catch (e) {}
+            sync();
+          });
+        }
+        var nb = document.querySelector('[data-nav-toggle]');
+        var nav = document.getElementById('site-nav');
+        if (nb && nav) {
+          nb.addEventListener('click', function () {
+            var open = nb.getAttribute('aria-expanded') === 'true';
+            nb.setAttribute('aria-expanded', open ? 'false' : 'true');
+            nav.classList.toggle('is-open', !open);
+          });
+        }
+        document.querySelectorAll('form[data-demo-form]').forEach(function (f) {
+          f.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var msg = f.querySelector('.form-demo-msg');
+            if (msg) { msg.hidden = false; msg.focus(); }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

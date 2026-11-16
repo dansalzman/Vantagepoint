@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import { openItems } from '../data/openItems';
+
+const groups = ['Facts and copy', 'Proof points', 'Brand and assets', 'Technical'] as const;
+const counts = Object.fromEntries(['Blocker', 'High', 'Medium', 'Low'].map((p) => [p, openItems.filter((i) => i.priority === p).length]));
+---
+<Base
+  title="Open Items for the Demo Site | Vantage Point"
+  description="Everything Vantage Point staff need to supply or confirm before the new site can go live."
+>
+  <section class="page-hero vp-on-brand">
+    <div class="wrap">
+      <p class="vp-eyebrow">Demo notes</p>
+      <h1>Open items before launch</h1>
+      <p class="lead">{openItems.length} items: {counts.Blocker} blockers, {counts.High} high, {counts.Medium} medium and {counts.Low} low priority. Each highlighted placeholder on the site links to its row here.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="callout" style="margin-bottom: var(--space-12)">
+        <p>This demo puts the structure from the November 2026 Website Assessment into practice: four audience doors on the homepage, a new Families page, an employer page built around the business case, and contact details on every page. Copy marked as a draft was written for the demo and needs staff review. Photographs are stock images from brand kit v1.</p>
+      </div>
+      {groups.map((g) => (
+        <div class="oi-group">
+          <h2>{g}</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th scope="col">ID</th><th scope="col">Item</th><th scope="col">Priority</th><th scope="col">Demo shows now</th><th scope="col">Pages</th></tr></thead>
+              <tbody>
+                {openItems.filter((i) => i.group === g).map((i) => (
+                  <tr id={i.id} class="oi-item">
+                    <td class="oi-id">{i.id}</td>
+                    <td>{i.title}</td>
+                    <td><span class={`prio prio--${i.priority}`}>{i.priority}</span></td>
+                    <td class="muted">{i.demo}</td>
+                    <td class="small">{i.pages.join(', ')}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

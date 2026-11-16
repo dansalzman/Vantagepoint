@@ -1,0 +1,17 @@
+---
+import Todo from './Todo.astro';
+import { stats } from '../data/site';
+interface Props { eyebrow?: string }
+const { eyebrow = 'Results, in numbers' } = Astro.props;
+---
+<section class="vp-stats vp-on-brand" aria-label="Outcomes">
+  <p class="vp-eyebrow">{eyebrow}</p>
+  <div class="vp-stats__grid">
+    {stats.map((s, i) => (
+      <div class="vp-stat">
+        <p class="vp-stat__num">{s.pre && <span>{s.pre}</span>}{s.num}{s.unit && <span>{s.unit}</span>}</p>
+        <p class="vp-stat__label">{i === 3 ? <Todo id="F15">{s.label}</Todo> : i === 0 ? <>People placed in integrated, competitive jobs since <Todo id="F1">2020</Todo></> : s.label}</p>
+      </div>
+    ))}
+  </div>
+</section>
